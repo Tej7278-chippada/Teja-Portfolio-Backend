@@ -1,6 +1,8 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
 const cors = require('cors');
+require('dotenv').config();
+
 const app = express();
 
 const PORT = process.env.PORT || 5000;
@@ -21,15 +23,15 @@ app.post('/send-email', (req, res) => {
     const transporter = nodemailer.createTransport({
       service: 'gmail', // For example, using Gmail service
       auth: {
-        user: 'tejachippada15@gmail.com', // Your email
-        pass: 'wcux hxui dkhj erej', // Your email password or App-specific password
+        user: process.env.EMAIL_USER, // Your email
+        pass: process.env.EMAIL_PASS, // Your email password or App-specific password
       },
     });
   
     // Email content
     const mailOptions = {
       from: email, // Sender's email
-      to: 'tejachippada15@gmail.com', // Predefined recipient email
+      to: process.env.EMAIL_USER, // Predefined recipient email
       subject: `Message from ${fname} ${sname}`, // Subject line
       text: `You have a new message from: ${fname} ${sname} (${email})\n\n${message}`, // Message body
     };
