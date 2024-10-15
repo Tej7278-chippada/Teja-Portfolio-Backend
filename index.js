@@ -31,7 +31,7 @@ app.post('/send-email', (req, res) => {
       from: email, // Sender's email
       to: 'tejachippada15@gmail.com', // Predefined recipient email
       subject: `Message from ${fname} ${sname}`, // Subject line
-      text: `You have a new message from: ${fname}${sname} (${email})\n\n${message}`, // Message body
+      text: `You have a new message from: ${fname} ${sname} (${email})\n\n${message}`, // Message body
     };
   
     // Send email
