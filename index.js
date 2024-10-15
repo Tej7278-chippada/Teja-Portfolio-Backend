@@ -9,13 +9,13 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json());
 app.use(cors()); // Enable CORS for frontend-backend communication
 
-app.get('/api', (req, res) => {
-    res.json({ message: 'Hello from Node.js backend!' });
-});
+// app.get('/api', (req, res) => {
+//     res.json({ message: 'Hello from Node.js backend!' });
+// });
 
 // Contact Form Email API route
 app.post('/send-email', (req, res) => {
-    const { name, email, message } = req.body;
+    const { fname, sname, email, message } = req.body;
   
     // Create a transporter using your email service provider
     const transporter = nodemailer.createTransport({
@@ -30,8 +30,8 @@ app.post('/send-email', (req, res) => {
     const mailOptions = {
       from: email, // Sender's email
       to: 'tejachippada15@gmail.com', // Predefined recipient email
-      subject: `Message from ${name}`, // Subject line
-      text: `You have a new message from: ${name} (${email})\n\n${message}`, // Message body
+      subject: `Message from ${fname} ${sname}`, // Subject line
+      text: `You have a new message from: ${fname}${sname} (${email})\n\n${message}`, // Message body
     };
   
     // Send email
