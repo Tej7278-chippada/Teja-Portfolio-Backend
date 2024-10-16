@@ -1,6 +1,6 @@
-#Teja Portfolio Backend
+# Teja Portfolio Backend
 
-#Server running on port 5001
+# Server running on port 5001
 
 This is the backend file of Teja's Portfolio webpage.
 
